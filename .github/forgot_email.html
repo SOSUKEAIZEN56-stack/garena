@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Récupérer votre compte – Comptes Google</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Styles généraux copiés de index.html pour cohérence */
+        :root { --google-blue: #1a73e8; --google-gray: #5f6368; --input-border: #dadce0; --light-gray-background: #f8f9fa; --text-color: #202124; }      
+        body { font-family: 'Roboto', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background-color: var(--light-gray-background); flex-direction: column; color: var(--text-color); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        .container { width: 100%; max-width: 448px; padding: 24px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; } 
+        .card { background-color: #fff; border: 1px solid var(--input-border); border-radius: 8px; padding: 48px 40px 36px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(60,64,67,.06), 0 1px 2px rgba(60,64,67,.12); width: 100%; box-sizing: border-box; text-align: center; }
+        .logo { width: 75px; height: auto; margin-bottom: 20px; }
+        h1 { font-size: 24px; font-weight: 400; line-height: 1.3333; margin-bottom: 10px; color: var(--text-color); }
+        .card p { font-size: 16px; line-height: 1.5; letter-spacing: .1px; margin-bottom: 24px; color: var(--text-color); }
+        .input-group { position: relative; margin-bottom: 24px; margin-top: 10px; }
+        .input-group input { width: 100%; padding: 13px 15px; font-size: 16px; border: 1px solid var(--input-border); border-radius: 4px; box-sizing: border-box; outline: none; transition: border-color 0.2s ease-in-out, box-shadow 0.2s; background-color: transparent; }
+        .input-group label { position: absolute; left: 15px; top: 13px; font-size: 16px; color: var(--google-gray); pointer-events: none; transition: all 0.2s ease-out; background-color: #fff; padding: 0 4px; transform-origin: top left; }
+        .input-group input:focus { border-color: var(--google-blue); box-shadow: 0 0 0 1px var(--google-blue); }
+        .input-group input:focus + label, .input-group input:not(:placeholder-shown) + label { top: -10px; font-size: 12px; color: var(--google-blue); left: 11px; }
+        .actions { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; }
+        .back-button { color: var(--google-blue); text-decoration: none; font-weight: 500; font-size: 14px; padding: 9px 15px; border-radius: 4px; transition: background-color 0.2s; }
+        .back-button:hover { background-color: rgba(26,115,232,0.04); }
+        .next-button { background-color: var(--google-blue); color: #fff; border: none; border-radius: 4px; padding: 9px 23px; font-size: 14px; font-weight: 500; cursor: pointer; transition: background-color 0.2s, box-shadow 0.2s; }
+        .next-button:hover { background-color: #1669c4; box-shadow: 0 1px 3px rgba(60,64,67,.06), 0 1px 2px rgba(60,64,67,.12); }
+        .footer-links { display: flex; justify-content: center; align-items: center; width: 100%; max-width: 448px; padding: 0 24px; box-sizing: border-box; color: var(--google-gray); font-size: 12px; margin-top: 10px; }
+        .footer-links select { border: none; background-color: transparent; color: var(--google-gray); font-size: 12px; margin-right: 20px; padding: 5px; outline: none; cursor: pointer; -webkit-appearance: none; -moz-appearance: none; appearance: none; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%235f6368%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128.8%20128.8c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095.1c3.6-3.5%205.4-7.8%205.4-12.8%200-5-1.8-9.3-5.4-12.9z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 8px center; background-size: 8px 8px; }
+        .footer-links select:focus { outline: 1px solid var(--google-blue); }
+        .footer-links a { color: var(--google-gray); text-decoration: none; margin-left: 20px; font-weight: 400; }
+        .footer-links a:hover { text-decoration: underline; }
+        @media (max-width: 600px) { .card { margin-bottom: 0; border: none; border-radius: 0; box-shadow: none; padding: 24px 24px 20px; min-height: calc(100vh - 56px); } .container { padding: 0; max-width: 100%; } body { background-color: #fff; } .footer-links { justify-content: space-around; max-width: 100%; padding: 0 24px; margin-bottom: 20px; } .footer-links select { margin-right: 0; } .footer-links a { margin-left: 0; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" class="logo">
+            <h1>Récupérer votre compte</h1>
+            <p>Saisissez le numéro de téléphone ou l'adresse e-mail de récupération associé à votre compte.</p>
+            <form action="#" method="POST">
+                <div class="input-group">
+                    <input type="text" id="recovery_id" name="recovery_id" required autocomplete="email" placeholder=" ">
+                    <label for="recovery_id">Numéro de téléphone ou adresse e-mail</label>
+                </div>
+                <div class="actions">
+                    <a href="index.html" class="back-button">Retour</a>
+                    <button type="submit" class="next-button">Suivant</button>
+                </div>
+            </form>
+        </div>
+        <div class="footer-links">
+            <select class="language-selector" onchange="alert('Langue changée en : ' + this.options[this.selectedIndex].text)">
+                <option value="fr">Français</option>
+                <option value="en">English (United States)</option>
+                <option value="es">Español</option>
+                <option value="de">Deutsch</option>
+                <option value="ja">日本語</option>
+            </select>
+            <a href="help.html">Aide</a>
+            <a href="privacy.html">Confidentialité</a>
+            <a href="terms.html">Conditions</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion – Comptes Google</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Variables de couleurs pour une meilleure gestion */
+        :root {
+            --google-blue: #1a73e8;
+            --google-gray: #5f6368;
+            --input-border: #dadce0;
+            --light-gray-background: #f8f9fa;
+            --text-color: #202124;
+        }
+
+        /* Styles généraux pour le corps de la page */
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: var(--light-gray-background);
+            flex-direction: column;
+            color: var(--text-color);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Conteneur principal pour centrer le formulaire */
+        .container {
+            width: 100%;
+            max-width: 448px; /* Largeur standard de la carte Google */
+            padding: 24px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Style de la carte de connexion */
+        .card {
+            background-color: #fff;
+            border: 1px solid var(--input-border);
+            border-radius: 8px;
+            padding: 48px 40px 36px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(60,64,67,.06), 0 1px 2px rgba(60,64,67,.12);
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        /* Logo Google */
+        .logo {
+            width: 75px; /* Taille ajustée pour ressembler au logo sur la page de connexion */
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        /* Titre "Connexion" */
+        h1 {
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.3333;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        /* Paragraphes dans la carte */
+        .card p {
+            font-size: 16px;
+            line-height: 1.5;
+            letter-spacing: .1px;
+            margin-bottom: 24px;
+            color: var(--text-color);
+        }
+
+        /* Groupe d'entrée pour le label flottant */
+        .input-group {
+            position: relative;
+            margin-bottom: 24px;
+            margin-top: 10px; /* Ajustement pour le label flottant */
+        }
+
+        /* Champ de saisie */
+        .input-group input {
+            width: 100%;
+            padding: 13px 15px;
+            font-size: 16px;
+            border: 1px solid var(--input-border);
+            border-radius: 4px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s;
+            background-color: transparent; /* Permet au label de s'afficher correctement derrière */
+        }
+
+        /* Style du label (qui flotte) */
+        .input-group label {
+            position: absolute;
+            left: 15px;
+            top: 13px; /* Alignement avec le padding de l'input */
+            font-size: 16px;
+            color: var(--google-gray);
+            pointer-events: none; /* Le label ne doit pas interférer avec le clic sur l'input */
+            transition: all 0.2s ease-out;
+            background-color: #fff; /* Pour "découper" le fond derrière le label quand il monte */
+            padding: 0 4px;
+            transform-origin: top left; /* Point d'origine pour le scale */
+        }
+
+        /* Style de l'input au focus */
+        .input-group input:focus {
+            border-color: var(--google-blue);
+            box-shadow: 0 0 0 1px var(--google-blue);
+        }
+
+        /* Comportement du label quand l'input est focus ou contient du texte */
+        .input-group input:focus + label,
+        .input-group input:not(:placeholder-shown) + label {
+            top: -10px; /* Remonte le label */
+            font-size: 12px; /* Réduit la taille du texte */
+            color: var(--google-blue); /* Change la couleur */
+            left: 11px; /* Ajuste la position horizontale */
+        }
+
+        /* Lien "Adresse e-mail oubliée ?" */
+        .forgot-email {
+            display: block;
+            text-align: left;
+            margin-top: -16px; /* Ajuste la position par rapport à l'input */
+            margin-bottom: 32px;
+            color: var(--google-blue);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .forgot-email:hover {
+            text-decoration: underline;
+        }
+
+        /* Section "Pas votre ordinateur ?" */
+        .guest-mode {
+            text-align: left;
+            font-size: 14px;
+            color: var(--google-gray);
+            line-height: 1.5;
+            margin-bottom: 32px;
+        }
+
+        .guest-mode a {
+            color: var(--google-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .guest-mode a:hover {
+            text-decoration: underline;
+        }
+
+        /* Conteneur des boutons d'action */
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 24px;
+        }
+
+        /* Lien "Créer un compte" */
+        .create-account {
+            color: var(--google-blue);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 9px 15px; /* Pour donner un aspect de bouton sans en être un */
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .create-account:hover {
+            background-color: rgba(26,115,232,0.04);
+        }
+
+        /* Bouton "Suivant" */
+        .next-button {
+            background-color: var(--google-blue);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 9px 23px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s, box-shadow 0.2s;
+        }
+
+        .next-button:hover {
+            background-color: #1669c4;
+            box-shadow: 0 1px 3px rgba(60,64,67,.06), 0 1px 2px rgba(60,64,67,.12);
+        }
+
+        /* Liens du pied de page (sélecteur de langue, Aide, Confidentialité, Conditions) */
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 448px;
+            padding: 0 24px;
+            box-sizing: border-box;
+            color: var(--google-gray);
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        .footer-links select {
+            border: none;
+            background-color: transparent;
+            color: var(--google-gray);
+            font-size: 12px;
+            margin-right: 20px;
+            padding: 5px;
+            outline: none;
+            cursor: pointer;
+            -webkit-appearance: none; /* Cache la flèche par défaut sur Webkit */
+            -moz-appearance: none;    /* Cache la flèche par défaut sur Mozilla */
+            appearance: none;
+            /* Icône de flèche personnalisée pour le sélecteur */
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%235f6368%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128.8%20128.8c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095.1c3.6-3.5%205.4-7.8%205.4-12.8%200-5-1.8-9.3-5.4-12.9z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            background-size: 8px 8px;
+        }
+
+        .footer-links select:focus {
+            outline: 1px solid var(--google-blue);
+        }
+
+        .footer-links a {
+            color: var(--google-gray);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 400;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Ajustements pour la réactivité sur mobile */
+        @media (max-width: 600px) {
+            .card {
+                margin-bottom: 0;
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
+                padding: 24px 24px 20px;
+                min-height: calc(100vh - 56px); /* Prend presque toute la hauteur sur mobile */
+            }
+            .container {
+                padding: 0;
+                max-width: 100%;
+            }
+            body {
+                background-color: #fff; /* Fond blanc sur mobile */
+            }
+            .footer-links {
+                justify-content: space-around;
+                max-width: 100%;
+                padding: 0 24px;
+                margin-bottom: 20px;
+            }
+            .footer-links select {
+                margin-right: 0;
+            }
+            .footer-links a {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" class="logo">
+            <h1>Connexion</h1>
+            <p>Utiliser votre compte Google</p>
+            <form action="#" method="POST"> <!-- L'action du formulaire est un placeholder -->
+                <div class="input-group">
+                    <input type="text" id="identifier" name="identifier" required autocomplete="username" placeholder=" ">
+                    <label for="identifier">Adresse e-mail ou numéro de téléphone</label>
+                </div>
+                <a href="#" class="forgot-email">Adresse e-mail oubliée ?</a>
+                <div class="guest-mode">
+                    <p>Pas votre ordinateur ? Utilisez le mode Invité pour vous connecter en privé.</p>
+                    <a href="#">En savoir plus</a>
+                </div>
+                <div class="actions">
+                    <a href="#" class="create-account">Créer un compte</a>
+                    <button type="submit" class="next-button">Suivant</button>
+                </div>
+            </form>
+        </div>
+        <div class="footer-links">
+            <select class="language-selector">
+                <option value="fr">Français</option>
+                <option value="en">English (United States)</option>
+                <option value="es">Español</option>
+                <option value="de">Deutsch</option>
+                <option value="ja">日本語</option>
+            </select>
+            <a href="#">Aide</a>
+            <a href="#">Confidentialité</a>
+            <a href="#">Conditions</a>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les 50 Sites les Plus Visités au Monde</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+            position: relative; /* Needed for absolute/fixed positioning of watermark/footer */
+            min-height: 100vh; /* Ensure body takes full viewport height for footer to be at bottom */   
+            padding-bottom: 50px; /* Space for the footer */
+        }
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1; /* Ensure title is above watermark */
+        }
+        ol {
+            list-style-type: none; /* Remove default numbering */
+            padding-left: 0;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1; /* Ensure list is above watermark */
+        }
+        li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .list-number {
+            font-weight: bold;
+            margin-right: 10px;
+            color: #555;
+            width: 25px; /* Fixed width for alignment */
+            text-align: right;
+            flex-shrink: 0;
+        }
+        img.logo {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            vertical-align: middle;
+            border-radius: 4px; /* Slightly rounded corners for logos */
+            flex-shrink: 0;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 1.1em;
+            flex-grow: 1;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Styles for the watermark "HTC EDMOND" */
+        .watermark {
+            position: fixed; /* Fixed position relative to the viewport */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center it perfectly */
+            font-size: 25vw; /* Very large font size, scales with viewport width for "grand caractere" */
+            font-weight: 900; /* Extra bold for strong visibility */
+            text-transform: uppercase;
+            white-space: nowrap; /* Prevent text from wrapping */
+            z-index: 0; /* Behind other content */
+            pointer-events: none; /* Allows clicks to pass through */
+
+            /* Rainbow text effect */
+            background: linear-gradient(to right,
+                #ff0000, /* Red */
+                #ffa500, /* Orange */
+                #ffff00, /* Yellow */
+                #008000, /* Green */
+                #0000ff, /* Blue */
+                #4b0082, /* Indigo */
+                #ee82ee  /* Violet */
+            );
+            -webkit-background-clip: text; /* For WebKit browsers */
+            background-clip: text;
+            color: transparent; /* Make text transparent to show background */
+            -webkit-text-fill-color: transparent; /* For older WebKit */
+
+            opacity: 0.3; /* Increased visibility as requested ("visible sur la page partout") */        
+            /* For a specific "caractère algérien" font, an external font file would be required.        
+               Here, a very bold, widely available font (`Impact`) is used to convey a strong presence. */
+            font-family: 'Impact', 'Arial Black', sans-serif;
+        }
+
+        /* Styles for "Powered by HTC" */
+        .footer-text {
+            text-align: center;
+            margin-top: 30px;
+            padding: 10px;
+            color: #777;
+            font-size: 0.9em;
+            position: absolute; /* Position relative to the body */
+            bottom: 0;
+            width: 100%;
+            left: 0;
+            box-sizing: border-box; /* Include padding in width */
+            z-index: 1; /* Ensure footer is above watermark */
+        }
+    </style>
+</head>
+<body>
+    <div class="watermark">HTC EDMOND</div>
+
+    <h1>Les 50 Sites les Plus Visités au Monde</h1>
+    <ol>
+        <li><span class="list-number">1.</span> <img src="https://www.google.com/s2/favicons?domain=google.com" alt="Google Logo" class="logo"><a href="https://www.google.com" target="_blank" rel="noopener noreferrer">Google</a></li>
+        <li><span class="list-number">2.</span> <img src="https://www.google.com/s2/favicons?domain=youtube.com" alt="YouTube Logo" class="logo"><a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+        <li><span class="list-number">3.</span> <img src="https://www.google.com/s2/favicons?domain=facebook.com" alt="Facebook Logo" class="logo"><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><span class="list-number">4.</span> <img src="https://www.google.com/s2/favicons?domain=instagram.com" alt="Instagram Logo" class="logo"><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><span class="list-number">5.</span> <img src="https://www.google.com/s2/favicons?domain=twitter.com" alt="X (Twitter) Logo" class="logo"><a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+        <li><span class="list-number">6.</span> <img src="https://www.google.com/s2/favicons?domain=tiktok.com" alt="TikTok Logo" class="logo"><a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+        <li><span class="list-number">7.</span> <img src="https://www.google.com/s2/favicons?domain=baidu.com" alt="Baidu Logo" class="logo"><a href="https://www.baidu.com" target="_blank" rel="noopener noreferrer">Baidu</a></li>
+        <li><span class="list-number">8.</span> <img src="https://www.google.com/s2/favicons?domain=wikipedia.org" alt="Wikipedia Logo" class="logo"><a href="https://www.wikipedia.org" target="_blank" rel="noopener noreferrer">Wikipedia</a></li>
+        <li><span class="list-number">9.</span> <img src="https://www.google.com/s2/favicons?domain=amazon.com" alt="Amazon Logo" class="logo"><a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer">Amazon</a></li>
+        <li><span class="list-number">10.</span> <img src="https://www.google.com/s2/favicons?domain=reddit.com" alt="Reddit Logo" class="logo"><a href="https://www.reddit.com" target="_blank" rel="noopener noreferrer">Reddit</a></li>
+        <li><span class="list-number">11.</span> <img src="https://www.google.com/s2/favicons?domain=yahoo.com" alt="Yahoo Logo" class="logo"><a href="https://www.yahoo.com" target="_blank" rel="noopener noreferrer">Yahoo</a></li>
+        <li><span class="list-number">12.</span> <img src="https://www.google.com/s2/favicons?domain=whatsapp.com" alt="WhatsApp Web Logo" class="logo"><a href="https://web.whatsapp.com" target="_blank" rel="noopener noreferrer">WhatsApp Web</a></li>
+        <li><span class="list-number">13.</span> <img src="https://www.google.com/s2/favicons?domain=linkedin.com" alt="LinkedIn Logo" class="logo"><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><span class="list-number">14.</span> <img src="https://www.google.com/s2/favicons?domain=microsoft.com" alt="Microsoft Logo" class="logo"><a href="https://www.microsoft.com" target="_blank" rel="noopener noreferrer">Microsoft</a></li>
+        <li><span class="list-number">15.</span> <img src="https://www.google.com/s2/favicons?domain=netflix.com" alt="Netflix Logo" class="logo"><a href="https://www.netflix.com" target="_blank" rel="noopener noreferrer">Netflix</a></li>
+        <li><span class="list-number">16.</span> <img src="https://www.google.com/s2/favicons?domain=pinterest.com" alt="Pinterest Logo" class="logo"><a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer">Pinterest</a></li>
+        <li><span class="list-number">17.</span> <img src="https://www.google.com/s2/favicons?domain=apple.com" alt="Apple Logo" class="logo"><a href="https://www.apple.com" target="_blank" rel="noopener noreferrer">Apple</a></li>
+        <li><span class="list-number">18.</span> <img src="https://www.google.com/s2/favicons?domain=ebay.com" alt="eBay Logo" class="logo"><a href="https://www.ebay.com" target="_blank" rel="noopener noreferrer">eBay</a></li>
+        <li><span class="list-number">19.</span> <img src="https://www.google.com/s2/favicons?domain=qq.com" alt="Tencent QQ Logo" class="logo"><a href="https://www.qq.com" target="_blank" rel="noopener noreferrer">Tencent QQ</a></li>
+        <li><span class="list-number">20.</span> <img src="https://www.google.com/s2/favicons?domain=wechat.com" alt="WeChat Logo" class="logo"><a href="https://weixin.qq.com" target="_blank" rel="noopener noreferrer">WeChat</a></li>
+        <li><span class="list-number">21.</span> <img src="https://www.google.com/s2/favicons?domain=taobao.com" alt="Taobao Logo" class="logo"><a href="https://www.taobao.com" target="_blank" rel="noopener noreferrer">Taobao</a></li>
+        <li><span class="list-number">22.</span> <img src="https://www.google.com/s2/favicons?domain=jd.com" alt="JD.com Logo" class="logo"><a href="https://www.jd.com" target="_blank" rel="noopener noreferrer">JD.com</a></li>
+        <li><span class="list-number">23.</span> <img src="https://www.google.com/s2/favicons?domain=zoom.us" alt="Zoom Logo" class="logo"><a href="https://zoom.us" target="_blank" rel="noopener noreferrer">Zoom</a></li>
+        <li><span class="list-number">24.</span> <img src="https://www.google.com/s2/favicons?domain=twitch.tv" alt="Twitch Logo" class="logo"><a href="https://www.twitch.tv" target="_blank" rel="noopener noreferrer">Twitch</a></li>
+        <li><span class="list-number">25.</span> <img src="https://www.google.com/s2/favicons?domain=spotify.com" alt="Spotify Logo" class="logo"><a href="https://www.spotify.com" target="_blank" rel="noopener noreferrer">Spotify</a></li>
+        <li><span class="list-number">26.</span> <img src="https://www.google.com/s2/favicons?domain=wordpress.com" alt="WordPress.com Logo" class="logo"><a href="https://wordpress.com" target="_blank" rel="noopener noreferrer">WordPress.com</a></li>
+        <li><span class="list-number">27.</span> <img src="https://www.google.com/s2/favicons?domain=vk.com" alt="VK Logo" class="logo"><a href="https://vk.com" target="_blank" rel="noopener noreferrer">VK</a></li>
+        <li><span class="list-number">28.</span> <img src="https://www.google.com/s2/favicons?domain=live.com" alt="Outlook Logo" class="logo"><a href="https://outlook.live.com" target="_blank" rel="noopener noreferrer">Outlook</a></li>
+        <li><span class="list-number">29.</span> <img src="https://www.google.com/s2/favicons?domain=quora.com" alt="Quora Logo" class="logo"><a href="https://www.quora.com" target="_blank" rel="noopener noreferrer">Quora</a></li>
+        <li><span class="list-number">30.</span> <img src="https://www.google.com/s2/favicons?domain=stackoverflow.com" alt="Stack Overflow Logo" class="logo"><a href="https://stackoverflow.com" target="_blank" rel="noopener noreferrer">Stack Overflow</a></li>
+        <li><span class="list-number">31.</span> <img src="https://www.google.com/s2/favicons?domain=imgur.com" alt="Imgur Logo" class="logo"><a href="https://imgur.com" target="_blank" rel="noopener noreferrer">Imgur</a></li>
+        <li><span class="list-number">32.</span> <img src="https://www.google.com/s2/favicons?domain=cnn.com" alt="CNN Logo" class="logo"><a href="https://www.cnn.com" target="_blank" rel="noopener noreferrer">CNN</a></li>
+        <li><span class="list-number">33.</span> <img src="https://www.google.com/s2/favicons?domain=bbc.com" alt="BBC Logo" class="logo"><a href="https://www.bbc.com" target="_blank" rel="noopener noreferrer">BBC</a></li>
+        <li><span class="list-number">34.</span> <img src="https://www.google.com/s2/favicons?domain=nytimes.com" alt="The New York Times Logo" class="logo"><a href="https://www.nytimes.com" target="_blank" rel="noopener noreferrer">The New York Times</a></li>
+        <li><span class="list-number">35.</span> <img src="https://www.google.com/s2/favicons?domain=espn.com" alt="ESPN Logo" class="logo"><a href="https://www.espn.com" target="_blank" rel="noopener noreferrer">ESPN</a></li>
+        <li><span class="list-number">36.</span> <img src="https://www.google.com/s2/favicons?domain=samsung.com" alt="Samsung Logo" class="logo"><a href="https://www.samsung.com" target="_blank" rel="noopener noreferrer">Samsung</a></li>
+        <li><span class="list-number">37.</span> <img src="https://www.google.com/s2/favicons?domain=adobe.com" alt="Adobe Logo" class="logo"><a href="https://www.adobe.com" target="_blank" rel="noopener noreferrer">Adobe</a></li>
+        <li><span class="list-number">38.</span> <img src="https://www.google.com/s2/favicons?domain=alibaba.com" alt="Alibaba Logo" class="logo"><a href="https://www.alibaba.com" target="_blank" rel="noopener noreferrer">Alibaba</a></li>
+        <li><span class="list-number">39.</span> <img src="https://www.google.com/s2/favicons?domain=telegram.org" alt="Telegram Web Logo" class="logo"><a href="https://web.telegram.org" target="_blank" rel="noopener noreferrer">Telegram Web</a></li>
+        <li><span class="list-number">40.</span> <img src="https://www.google.com/s2/favicons?domain=snapchat.com" alt="Snapchat Logo" class="logo"><a href="https://www.snapchat.com" target="_blank" rel="noopener noreferrer">Snapchat</a></li>
+        <li><span class="list-number">41.</span> <img src="https://www.google.com/s2/favicons?domain=discord.com" alt="Discord Logo" class="logo"><a href="https://discord.com" target="_blank" rel="noopener noreferrer">Discord</a></li>
+        <li><span class="list-number">42.</span> <img src="https://www.google.com/s2/favicons?domain=alipay.com" alt="Alipay Logo" class="logo"><a href="https://www.alipay.com" target="_blank" rel="noopener noreferrer">Alipay</a></li>
+        <li><span class="list-number">43.</span> <img src="https://www.google.com/s2/favicons?domain=booking.com" alt="Booking.com Logo" class="logo"><a href="https://www.booking.com" target="_blank" rel="noopener noreferrer">Booking.com</a></li>
+        <li><span class="list-number">44.</span> <img src="https://www.google.com/s2/favicons?domain=trip.com" alt="Trip.com Logo" class="logo"><a href="https://www.trip.com" target="_blank" rel="noopener noreferrer">Trip.com</a></li>
+        <li><span class="list-number">45.</span> <img src="https://www.google.com/s2/favicons?domain=tumblr.com" alt="Tumblr Logo" class="logo"><a href="https://www.tumblr.com" target="_blank" rel="noopener noreferrer">Tumblr</a></li>
+        <li><span class="list-number">46.</span> <img src="https://www.google.com/s2/favicons?domain=github.com" alt="GitHub Logo" class="logo"><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><span class="list-number">47.</span> <img src="https://www.google.com/s2/favicons?domain=gitlab.com" alt="GitLab Logo" class="logo"><a href="https://gitlab.com" target="_blank" rel="noopener noreferrer">GitLab</a></li>
+        <li><span class="list-number">48.</span> <img src="https://www.google.com/s2/favicons?domain=salesforce.com" alt="Salesforce Logo" class="logo"><a href="https://www.salesforce.com" target="_blank" rel="noopener noreferrer">Salesforce</a></li>
+        <li><span class="list-number">49.</span> <img src="https://www.google.com/s2/favicons?domain=oracle.com" alt="Oracle Logo" class="logo"><a href="https://www.oracle.com" target="_blank" rel="noopener noreferrer">Oracle</a></li>
+        <li><span class="list-number">50.</span> <img src="https://www.google.com/s2/favicons?domain=wellsfargo.com" alt="Wells Fargo Logo" class="logo"><a href="https://www.wellsfargo.com" target="_blank" rel="noopener noreferrer">Wells Fargo</a></li>
+    </ol>
+
+    <div class="footer-text">
+        Powered by HTC
+    </div>
+</body>
+</html>

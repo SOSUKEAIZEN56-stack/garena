@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fond Binaire</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; /* Empêche le défilement */
+            background-color: #000; /* Le fond sera noir */
+            color: #fff; /* Couleur de texte par défaut (non visible ici, mais bonne pratique) */
+        }
+        /* Le canvas pour l'animation binaire */
+        #binaryCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Place le canvas derrière tout autre contenu hypothétique */
+            background-color: #000; /* S'assure que le fond est noir même si le JS tarde */
+        }
+    </style>
+</head>
+<body>
+    <canvas id="binaryCanvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById('binaryCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Réglages du canvas
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const font_size = 16; // Taille de la police pour les 0 et 1
+        let columns = canvas.width / font_size; // Nombre de colonnes de binaire
+
+        // Un tableau pour stocker la position Y de chaque colonne de binaire
+        const drops = [];
+        // Initialise toutes les colonnes à la première ligne (y=0)
+        for(let i = 0; i < columns; i++) {
+            drops[i] = 1;
+        }
+
+        // Fonction de dessin de l'animation
+        function draw() {
+            // Un fond légèrement transparent pour l'effet de "trainée"
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F0'; // Texte vert
+            ctx.font = font_size + 'px monospace'; // Police monospace pour l'alignement
+
+            // Dessine chaque "goutte" de binaire
+            for(let i = 0; i < drops.length; i++) {
+                // Un 0 ou un 1 aléatoire
+                const text = Math.round(Math.random());
+
+                // Dessine le caractère à la position X (colonne) et Y (ligne)
+                ctx.fillText(text, i * font_size, drops[i] * font_size);
+
+                // Si la goutte a atteint le bas du canvas ET qu'une condition aléatoire est remplie,
+                // la ramène en haut. La condition aléatoire crée des "interruptions" naturelles.
+                if(drops[i] * font_size > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+
+                // Incrémente la position Y de la goutte
+                drops[i]++;
+            }
+        }
+
+        // Met à jour le canvas à chaque redimensionnement de la fenêtre
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            columns = canvas.width / font_size; // Recalcule les colonnes
+            // Réinitialise les drops pour s'adapter à la nouvelle largeur (facultatif, mais assure une bonne couverture)
+            drops.length = 0; // Vide l'ancien tableau
+            for(let i = 0; i < columns; i++) {
+                drops[i] = 1;
+            }
+        });
+
+        // Appelle la fonction draw environ 30 fois par seconde (33ms interval)
+        setInterval(draw, 33);
+    </script>
+</body>
+</html>

